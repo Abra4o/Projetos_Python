@@ -10,6 +10,9 @@ def limparNomeArquivo(nome):
 # Link do video
 link = input(str('Digite o link do vídeo do Youtube aqui: '))
 
+# Cria a pasta audios caso ela não exista
+os.makedirs('audios', exist_ok=True)
+
 # Extrai as informações do vídeo para pegar o titulo
 with yt_dlp.YoutubeDL({'quiet': True}) as ydl:
     info_dict = ydl.extract_info(link, download=False)
